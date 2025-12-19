@@ -32,6 +32,7 @@ server.post('/auth/login', (req, res) => {
   });
 });
 
+/*
 // Middleware para simular auth en rutas protegidas (opcional)
 server.use((req, res, next) => {
   if (req.path.startsWith('/projects') || req.path.startsWith('/tasks')) {
@@ -47,6 +48,7 @@ server.use((req, res, next) => {
   }
   next();
 });
+*/
 
 // Rewriter para rutas personalizadas
 server.use(rewriter);

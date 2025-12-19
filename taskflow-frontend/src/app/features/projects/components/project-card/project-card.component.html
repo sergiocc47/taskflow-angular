@@ -1,1 +1,12 @@
-<p>project-card works!</p>
+<mat-card class="project-card" (click)="open.emit(project.id)">
+  <mat-card-title>{{ project.name }}</mat-card-title>
+  <mat-card-subtitle>
+    <!-- Created at: {{ project.createdAt | date: 'mediumDate' }} -->
+    Created at: {{ project.createdAt }}
+  </mat-card-subtitle>
+
+  <mat-card-content>
+    <p>{{ project.description }}</p>
+    <!-- <p><strong>{{ project.taskCount }}</strong> tasks</p> -->
+  </mat-card-content>
+</mat-card>
