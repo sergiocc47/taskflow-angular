@@ -1,0 +1,49 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "email": "demo@taskflow.com",
+      "password": "123456",
+      "name": "Usuario Demo",
+      "token": "demo-token"
+    }
+  ],
+  "projects": [
+    {
+      "id": 1,
+      "name": "Proyecto Demo",
+      "description": "Proyecto inicial de ejemplo",
+      "createdAt": "2024-01-01T10:00:00.000Z",
+      "ownerId": 1
+    }
+  ],
+  "tasks": [
+    {
+      "id": 1,
+      "projectId": 1,
+      "title": "Definir requisitos",
+      "description": "Reunirse con el cliente",
+      "status": "pending",
+      "priority": "high",
+      "createdAt": "2024-01-02T09:00:00.000Z"
+    },
+    {
+      "id": 2,
+      "projectId": 1,
+      "title": "Diseñar arquitectura",
+      "description": "Arquitectura frontend",
+      "status": "in_progress",
+      "priority": "medium",
+      "createdAt": "2024-01-03T11:30:00.000Z"
+    },
+    {
+      "id": 3,
+      "projectId": 1,
+      "title": "Configurar CI/CD",
+      "description": "Pipeline básico",
+      "status": "completed",
+      "priority": "low",
+      "createdAt": "2024-01-04T15:45:00.000Z"
+    }
+  ]
+}
