@@ -6,6 +6,6 @@ import { Component } from '@angular/core';
   templateUrl: './project-detail.component.html',
   styleUrl: './project-detail.component.scss'
 })
-export class ProjectDetailComponent {
+export default class ProjectDetailComponent {
 
 }
