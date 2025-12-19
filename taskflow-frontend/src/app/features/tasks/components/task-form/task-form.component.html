@@ -1,1 +1,40 @@
-<p>task-form works!</p>
+<mat-card class="task-card">
+  <h2>Create Task</h2>
+
+  <form [formGroup]="taskForm" (ngSubmit)="submit()" class="task-form">
+
+    <!-- TITLE -->
+    <mat-form-field class="full-width">
+      <mat-label>Title</mat-label>
+      <input matInput type="text" formControlName="title">
+    </mat-form-field>
+
+    <!-- DESCRIPTION -->
+    <mat-form-field class="full-width">
+      <mat-label>Description</mat-label>
+      <input matInput type="text" formControlName="description">
+    </mat-form-field>
+
+    <!-- STATUS -->
+    <mat-form-field class="full-width">
+      <mat-label>Status</mat-label>
+      <mat-select formControlName="status">
+        <mat-option *ngFor="let status of statuses" [value]="status.value">{{ status.viewValue }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <!-- PRIORITY -->
+    <mat-form-field class="full-width">
+      <mat-label>Priority</mat-label>
+      <mat-select formControlName="priority">
+        <mat-option *ngFor="let priority of priorities" [value]="priority.value">{{ priority.viewValue }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <!-- SUBMIT -->
+    <button mat-stroked-button class="full-width" [disabled]="taskForm.invalid">
+      Create Task
+    </button>
+
+  </form>
+</mat-card>

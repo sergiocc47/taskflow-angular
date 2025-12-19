@@ -13,4 +13,8 @@ export class TasksService {
   getTasksByProjectId(projectId: number): Observable<any> {
     return this.http.get(`${this.url}/projects/${projectId}/tasks`);
   }
+
+  create(projectId: number, taskData: any): Observable<any> {
+    return this.http.post(`${this.url}/projects/${projectId}/tasks`, taskData);
+  }
 }

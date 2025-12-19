@@ -8,10 +8,9 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
   styleUrl: './login-form.component.scss'
 })
 export class LoginFormComponent {
-
   @Output() login = new EventEmitter<{ email: string; password: string }>();
 
-  public loginForm: FormGroup;
+  loginForm: FormGroup;
 
   constructor(private fb: FormBuilder) {
     this.loginForm = this.fb.group({

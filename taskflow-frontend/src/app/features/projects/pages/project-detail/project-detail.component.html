@@ -2,7 +2,12 @@
   <h1>{{ project.name }}</h1>
   <p>{{ project.description }}</p>
 
+  <app-task-form
+    [projectId]="project.id"
+    (created)="loadTasks()"
+  ></app-task-form>
+
   <app-task-list
-    [tasks]="tasks">
-  </app-task-list>
+    [tasks]="tasks"
+  ></app-task-list>
 </ng-container>

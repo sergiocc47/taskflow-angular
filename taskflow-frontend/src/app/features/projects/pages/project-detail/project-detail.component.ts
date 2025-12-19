@@ -6,13 +6,15 @@ import { ProjectsService } from '../../../../core/services/projects.service';
 import { TasksService } from '../../../../core/services/tasks.service';
 import { CommonModule } from '@angular/common';
 import { TaskListComponent } from '../../../tasks/components/task-list/task-list.component';
+import { TaskFormComponent } from "../../../tasks/components/task-form/task-form.component";
 
 @Component({
   selector: 'app-project-detail',
   imports: [
     CommonModule,
-    TaskListComponent
-  ],
+    TaskListComponent,
+    TaskFormComponent
+],
   templateUrl: './project-detail.component.html',
   styleUrl: './project-detail.component.scss'
 })
