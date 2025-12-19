@@ -1,1 +1,12 @@
-<p>task-item works!</p>
+<mat-card class="task-card">
+  <mat-card-title>{{ task.title }}</mat-card-title>
+  <mat-card-subtitle>
+    <!-- Created at: {{ task.createdAt | date: 'mediumDate' }} -->
+    Created at: {{ task.createdAt }}
+  </mat-card-subtitle>
+
+  <mat-card-content>
+    <p>{{ task.description }}</p>
+    <p>Status: {{ task.status }} | Priority: {{ task.priority }}</p>
+  </mat-card-content>
+</mat-card>

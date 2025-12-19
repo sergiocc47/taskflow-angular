@@ -5,10 +5,14 @@ import { ActivatedRoute } from '@angular/router';
 import { ProjectsService } from '../../../../core/services/projects.service';
 import { TasksService } from '../../../../core/services/tasks.service';
 import { CommonModule } from '@angular/common';
+import { TaskListComponent } from '../../../tasks/components/task-list/task-list.component';
 
 @Component({
   selector: 'app-project-detail',
-  imports: [CommonModule],
+  imports: [
+    CommonModule,
+    TaskListComponent
+  ],
   templateUrl: './project-detail.component.html',
   styleUrl: './project-detail.component.scss'
 })

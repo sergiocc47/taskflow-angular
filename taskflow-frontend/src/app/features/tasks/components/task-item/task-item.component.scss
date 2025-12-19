@@ -1,0 +1,8 @@
+.task-card {
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.task-card:hover {
+  transform: scale(1.02);
+}
