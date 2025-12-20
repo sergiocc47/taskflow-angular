@@ -15,8 +15,13 @@ import { Task } from '../../../../core/models/task.model';
 export class TaskListComponent {
   @Input() tasks!: Task[];
   @Output() deleted = new EventEmitter<number>();
+  @Output() taskToEdit = new EventEmitter<Task>();
 
-  send(taskId: number) {
+  edit(task: Task) {
+    this.taskToEdit.emit(task);
+  }
+
+  delete(taskId: number) {
     this.deleted.emit(taskId);
   }
 }

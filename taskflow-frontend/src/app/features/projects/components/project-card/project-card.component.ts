@@ -1,10 +1,14 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { Project } from '../../../../core/models/project.model';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-project-card',
-  imports: [MatCardModule],
+  imports: [
+    MatCardModule,
+    DatePipe
+],
   templateUrl: './project-card.component.html',
   styleUrl: './project-card.component.scss'
 })

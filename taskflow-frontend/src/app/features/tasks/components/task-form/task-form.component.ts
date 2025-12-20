@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
@@ -8,6 +8,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
 import { MatIconModule } from '@angular/material/icon';
 import { TasksService } from '../../../../core/services/tasks.service';
+import { Task } from '../../../../core/models/task.model';
 
 @Component({
   selector: 'app-task-form',
@@ -24,9 +25,12 @@ import { TasksService } from '../../../../core/services/tasks.service';
   templateUrl: './task-form.component.html',
   styleUrl: './task-form.component.scss'
 })
-export class TaskFormComponent {
+export class TaskFormComponent implements OnChanges {
   @Input() projectId!: number;
+  @Input() taskToEdit: Task | null = null;
+  @Output() updated = new EventEmitter<void>();
   @Output() created = new EventEmitter<void>();
+  @Output() close = new EventEmitter<void>();
 
   taskForm: FormGroup;
   statuses = [
@@ -52,17 +56,40 @@ export class TaskFormComponent {
     });
   }
 
+  ngOnChanges(): void {
+    if (this.taskToEdit) {
+      this.taskForm.patchValue(this.taskToEdit);
+    } else {
+      this.taskForm.reset({
+        status: this.statuses[0].value,
+        priority: this.priorities[0].value
+      });
+    }
+  }
+
   submit() {
     if (this.taskForm.valid) {
-      const newTask = {
+      const task = {
         ...this.taskForm.value,
         projectId: this.projectId,
         createdAt: new Date().toISOString()
       };
 
-      this.tasksService.create(this.projectId, newTask).subscribe(() => {
-        this.created.emit();
-      });
+      if (!this.taskToEdit) {
+        this.tasksService.create(this.projectId, task).subscribe(() => {
+          this.created.emit();
+          this.close.emit();
+        });
+      } else {
+        this.tasksService.update(this.taskToEdit.id, task).subscribe(() => {
+          this.updated.emit();
+          this.close.emit();
+        });
+      }
     }
+  }
+
+  closeForm() {
+    this.close.emit();
   }
 }

@@ -1,15 +1,10 @@
 <h2>Tasks</h2>
 
 <div>
-  <!-- <app-task-item
-    *ngFor="let task of tasks"
-    [task]="task"
-    (taskId)="deleted.emit($event)"
-  ></app-task-item> -->
-  <!-- TODO: remove after testing -->
   <app-task-item
     *ngFor="let task of tasks"
     [task]="task"
-    (taskId)="send($event)"
+    (selectedTask)="edit($event)"
+    (taskId)="delete($event)"
   ></app-task-item>
 </div>

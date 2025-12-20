@@ -7,13 +7,17 @@ import { TasksService } from '../../../../core/services/tasks.service';
 import { CommonModule } from '@angular/common';
 import { TaskListComponent } from '../../../tasks/components/task-list/task-list.component';
 import { TaskFormComponent } from "../../../tasks/components/task-form/task-form.component";
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-project-detail',
   imports: [
     CommonModule,
     TaskListComponent,
-    TaskFormComponent
+    TaskFormComponent,
+    MatButtonModule,
+    MatIconModule
 ],
   templateUrl: './project-detail.component.html',
   styleUrl: './project-detail.component.scss'
@@ -22,6 +26,8 @@ export default class ProjectDetailComponent implements OnInit {
   project!: Project;
   tasks: Task[] = [];
   projectId!: number;
+  showForm: boolean = false;
+  selectedTask: Task | null = null;
 
   constructor(
     private route: ActivatedRoute,
@@ -52,5 +58,20 @@ export default class ProjectDetailComponent implements OnInit {
       },
       error: (err) => console.error(`Error deleting task ${id}`, err)
     });
+  }
+
+  openCreateForm() {
+    this.selectedTask = null;
+    this.showForm = true;
+  }
+
+  openEditForm(task: Task) {
+    console.log('task to edit', task);
+    this.selectedTask = task;
+    this.showForm = true;
+  }
+
+  closeForm() {
+    this.showForm = false;
   }
 }

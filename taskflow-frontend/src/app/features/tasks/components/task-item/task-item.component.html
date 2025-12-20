@@ -1,9 +1,7 @@
 <mat-card class="task-card">
   <mat-card-title>{{ task.title }}</mat-card-title>
   <mat-card-subtitle>
-    <!-- TODO: Add date formatting -->
-    <!-- Created at: {{ task.createdAt | date: 'mediumDate' }} -->
-    Created at: {{ task.createdAt }}
+    Created at: {{ task.createdAt | date: 'mediumDate' }}
   </mat-card-subtitle>
 
   <mat-card-content>
@@ -12,7 +10,7 @@
         <p>{{ task.description }}</p>
         <p>Status: {{ task.status }} | Priority: {{ task.priority }}</p>
       </div>
-      <button mat-fab>
+      <button mat-fab (click)="edit()">
         <mat-icon>edit</mat-icon>
       </button>
       <button mat-fab (click)="delete()">

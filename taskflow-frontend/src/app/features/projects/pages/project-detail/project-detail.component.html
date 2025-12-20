@@ -2,19 +2,25 @@
   <h1>{{ project.name }}</h1>
   <p>{{ project.description }}</p>
 
-  <!-- TODO: Visibility -->
+  <div *ngIf="!showForm">
+    <button mat-fab extended (click)="openCreateForm()">
+      <mat-icon>add_circle_outline</mat-icon>
+      New Task
+    </button>
+  </div>
+
   <app-task-form
+    *ngIf="showForm"
     [projectId]="project.id"
+    [taskToEdit]="selectedTask"
+    (close)="closeForm()"
+    (updated)="loadTasks()"
     (created)="loadTasks()"
   ></app-task-form>
 
   <app-task-list
     [tasks]="tasks"
+    (taskToEdit)="openEditForm($event)"
     (deleted)="deleteTask($event)">
   ></app-task-list>
-  <!-- TODO: Update -->
-  <!-- <app-task-list
-    [tasks]="tasks"
-    (updated)="loadTasks()"
-  </app-task-list> -->
 </ng-container>

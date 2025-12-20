@@ -1,5 +1,8 @@
 <mat-card class="task-card">
-  <h2>Create Task</h2>
+  <button mat-icon-button class="close-btn" (click)="closeForm()">
+    <mat-icon>close</mat-icon>
+  </button>
+  <h2>Task</h2>
 
   <form [formGroup]="taskForm" (ngSubmit)="submit()" class="task-form">
 
