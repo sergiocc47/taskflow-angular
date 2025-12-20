@@ -43,4 +43,14 @@ export default class ProjectDetailComponent implements OnInit {
       this.tasks = tasks;
     });
   }
+
+  deleteTask(id: number) {
+    this.tasksService.delete(id).subscribe({
+      next: () => {
+        console.log(`Task ${id} deleted successfully`);
+        this.loadTasks();
+      },
+      error: (err) => console.error(`Error deleting task ${id}`, err)
+    });
+  }
 }

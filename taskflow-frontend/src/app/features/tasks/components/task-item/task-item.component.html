@@ -7,8 +7,17 @@
   </mat-card-subtitle>
 
   <mat-card-content>
-    <p>{{ task.description }}</p>
-    <p>Status: {{ task.status }} | Priority: {{ task.priority }}</p>
+    <div class="content-row">
+      <div class="text-content">
+        <p>{{ task.description }}</p>
+        <p>Status: {{ task.status }} | Priority: {{ task.priority }}</p>
+      </div>
+      <button mat-fab>
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-fab (click)="delete()">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
   </mat-card-content>
-  <!-- <mat-button></mat-button> -->
 </mat-card>

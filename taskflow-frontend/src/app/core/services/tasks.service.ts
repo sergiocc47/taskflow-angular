@@ -17,4 +17,10 @@ export class TasksService {
   create(projectId: number, taskData: any): Observable<any> {
     return this.http.post(`${this.url}/projects/${projectId}/tasks`, taskData);
   }
+
+  delete(taskId: number): Observable<any> {
+  // delete(projectId: number, taskId: number): Observable<any> {
+    // return this.http.delete(`${this.url}/projects/${projectId}/tasks/${taskId}`);
+    return this.http.delete(`${this.url}/tasks/${taskId}`);
+  }
 }

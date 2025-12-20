@@ -10,11 +10,11 @@
 
   <app-task-list
     [tasks]="tasks"
+    (deleted)="deleteTask($event)">
   ></app-task-list>
-  <!-- TODO: Update and delete -->
+  <!-- TODO: Update -->
   <!-- <app-task-list
     [tasks]="tasks"
     (updated)="loadTasks()"
-    (deleted)="loadTasks()">
   </app-task-list> -->
 </ng-container>

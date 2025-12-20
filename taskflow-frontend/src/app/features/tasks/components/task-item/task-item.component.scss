@@ -6,3 +6,13 @@
 .task-card:hover {
   transform: scale(1.02);
 }
+
+.content-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* centra verticalmente */
+}
+
+.text-content {
+  flex: 1; /* ocupa todo el espacio disponible */
+}
