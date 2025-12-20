@@ -1,12 +1,13 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
+import { MatIconModule } from '@angular/material/icon';
 import { TasksService } from '../../../../core/services/tasks.service';
-import { MatCardModule } from '@angular/material/card';
 
 @Component({
   selector: 'app-task-form',
@@ -16,8 +17,9 @@ import { MatCardModule } from '@angular/material/card';
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
+    MatButtonModule,
     MatSelectModule,
-    MatButtonModule
+    MatIconModule
   ],
   templateUrl: './task-form.component.html',
   styleUrl: './task-form.component.scss'

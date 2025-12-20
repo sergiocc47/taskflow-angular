@@ -1,6 +1,7 @@
 <mat-card class="project-card" (click)="open.emit(project.id)">
   <mat-card-title>{{ project.name }}</mat-card-title>
   <mat-card-subtitle>
+    <!-- TODO: Add date formatting -->
     <!-- Created at: {{ project.createdAt | date: 'mediumDate' }} -->
     Created at: {{ project.createdAt }}
   </mat-card-subtitle>

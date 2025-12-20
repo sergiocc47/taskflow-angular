@@ -2,6 +2,7 @@
   <h1>{{ project.name }}</h1>
   <p>{{ project.description }}</p>
 
+  <!-- TODO: Visibility -->
   <app-task-form
     [projectId]="project.id"
     (created)="loadTasks()"
@@ -10,4 +11,10 @@
   <app-task-list
     [tasks]="tasks"
   ></app-task-list>
+  <!-- TODO: Update and delete -->
+  <!-- <app-task-list
+    [tasks]="tasks"
+    (updated)="loadTasks()"
+    (deleted)="loadTasks()">
+  </app-task-list> -->
 </ng-container>
