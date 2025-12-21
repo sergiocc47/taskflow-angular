@@ -1,1 +1,30 @@
-<p>project-form works!</p>
+<mat-card class="project-card">
+  <button mat-icon-button class="close-btn" (click)="closeForm()">
+    <mat-icon>close</mat-icon>
+  </button>
+  <h2>Project</h2>
+
+  <form [formGroup]="projectForm" (ngSubmit)="submit()" class="project-form">
+
+    <!-- NAME -->
+    <mat-form-field class="full-width">
+      <mat-label>Name</mat-label>
+      <input matInput type="text" formControlName="name">
+    </mat-form-field>
+
+    <!-- DESCRIPTION -->
+    <mat-form-field class="full-width">
+      <mat-label>Description</mat-label>
+      <input matInput type="text" formControlName="description">
+    </mat-form-field>
+
+    <!-- SUBMIT -->
+    <div>
+      <button mat-fab extended class="full-width" [disabled]="projectForm.invalid">
+        <mat-icon>add_circle_outline</mat-icon>
+        Save
+      </button>
+    </div>
+
+  </form>
+</mat-card>

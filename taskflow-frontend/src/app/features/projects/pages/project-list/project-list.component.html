@@ -1,9 +1,38 @@
 <h1>Projects</h1>
 
-<div class="grid">
-  <app-project-card
-    *ngFor="let project of projects"
-    [project]="project"
-    (open)="goToDetail(project.id)"
-  ></app-project-card>
+<div *ngIf="!showForm">
+  <button mat-fab extended (click)="openCreateForm()">
+    <mat-icon>add_circle_outline</mat-icon>
+    New Project
+  </button>
 </div>
+
+<ng-container *ngIf="projects.length > 0; else noProjects">
+
+  <!-- <app-project-form
+    *ngIf="showForm"
+    [ownerId]="user.id"
+    [projectToEdit]="selectedProject"
+    (close)="closeForm()"
+    (updated)="loadProjects()"
+    (created)="loadProjects()"
+  ></app-project-form> -->
+  <app-project-form
+    *ngIf="showForm"
+    (created)="loadProjects()"
+    (close)="closeForm()"
+  ></app-project-form>
+
+  <div class="grid">
+    <app-project-card
+      *ngFor="let project of projects"
+      [project]="project"
+      (open)="goToDetail(project.id)"
+    ></app-project-card>
+  </div>
+</ng-container>
+
+<ng-template #noProjects>
+  <mat-spinner *ngIf="showSpinner">Loading</mat-spinner>
+  <div *ngIf="!showSpinner">No projects available</div>
+</ng-template>

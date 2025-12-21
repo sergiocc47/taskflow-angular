@@ -67,7 +67,7 @@ export class TaskFormComponent implements OnChanges {
     }
   }
 
-  submit() {
+  submit(): void {
     if (this.taskForm.valid) {
       const task = {
         ...this.taskForm.value,

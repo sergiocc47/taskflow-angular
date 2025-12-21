@@ -20,7 +20,8 @@ export default class LoginComponent {
     this.authService.login(credentials).subscribe({
       next: () => {
         console.log('Login successful')
-        this.router.navigate(['/projects']);},
+        this.router.navigate(['/projects']);
+      },
       error: (err) => console.error('Login failed', err)
     });
   }

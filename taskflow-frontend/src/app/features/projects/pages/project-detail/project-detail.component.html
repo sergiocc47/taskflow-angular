@@ -13,9 +13,9 @@
     *ngIf="showForm"
     [projectId]="project.id"
     [taskToEdit]="selectedTask"
-    (close)="closeForm()"
     (updated)="loadTasks()"
     (created)="loadTasks()"
+    (close)="closeForm()"
   ></app-task-form>
 
   <app-task-list

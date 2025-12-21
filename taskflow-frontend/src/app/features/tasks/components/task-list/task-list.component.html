@@ -1,10 +1,16 @@
 <h2>Tasks</h2>
 
-<div>
-  <app-task-item
-    *ngFor="let task of tasks"
-    [task]="task"
-    (selectedTask)="edit($event)"
-    (taskId)="delete($event)"
-  ></app-task-item>
-</div>
+<ng-container *ngIf="tasks!.length > 0; else noTasks">
+  <div class="grid">
+    <app-task-item
+      *ngFor="let task of tasks"
+      [task]="task"
+      (selectedTask)="edit($event)"
+      (taskId)="delete($event)"
+    ></app-task-item>
+  </div>
+</ng-container>
+
+<ng-template #noTasks>
+  <div>No tasks available</div>
+</ng-template>

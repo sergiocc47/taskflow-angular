@@ -1,0 +1,21 @@
+.project-card {
+  position: relative; /* Necesario para que el botón se posicione dentro del card */
+  padding: 2rem;
+  max-width: 400px;
+  margin: auto;
+}
+.project-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+.full-width {
+  width: 100%;
+}
+
+.close-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 10;
+}
